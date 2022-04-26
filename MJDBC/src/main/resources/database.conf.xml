@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<datasource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="database.conf.xsd">
+    <driver>com.mysql.cj.jdbc.Driver</driver>
+    <url>jdbc:mysql://localhost:3306/school?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true&amp;allowPublicKeyRetrieval=true </url>
+<!--    <url>jdbc:mysql://localhost:3306/school?serverTimezone=Asia/Shanghai&amp;useSSL=false</url>//StudentServixceTest使用的url-->
+    <user>root</user>
+    <password>136601</password>
+</datasource>
