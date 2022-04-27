@@ -21,5 +21,13 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>StudentQueryAllServlet</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.StudentQueryAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentQueryAllServlet</servlet-name>
+        <url-pattern>/queryallstu</url-pattern>
+    </servlet-mapping>
 
 </web-app>

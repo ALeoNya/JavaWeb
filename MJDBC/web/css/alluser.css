@@ -1,0 +1,17 @@
+table{
+    border-collapse: collapse;
+    margin: 1px auto;
+    text-align: center;
+}
+table td{
+    border: 1px solid #cce8ed;
+    height: 40px;
+    width: 150px;
+}
+table tr:nth-child(odd){
+    background: #f8d7da;
+}
+
+table tr:nth-child(even){
+    background: #b8daff;
+}
