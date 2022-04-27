@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -25,10 +26,11 @@ public class LoginServlet extends HttpServlet{
             Student student = studentServiceMysql.findStudentNameAndPassword(username,password);
             String sname = student.getSname();
             System.out.printf("[Debug] 返回值 sname = " + sname );
-
+            HttpSession session = req.getSession();
+            session.setAttribute("username",sname);
             //(3)页面跳转
             if(sname!=null){
-                resp.sendRedirect("/main.html");
+                resp.sendRedirect("/main.jsp");
             }else{
                 resp.sendRedirect("/error.html");
             }

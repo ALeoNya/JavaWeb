@@ -11,6 +11,10 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$Hallo World!
+  <form action="login">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="submit" value="登录">
+  </form>
   </body>
 </html>
