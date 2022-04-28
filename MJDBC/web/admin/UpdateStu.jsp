@@ -14,7 +14,7 @@
     <link rel="stylesheet" type=text/css" href="../css/alluser.css">
 </head>
 <body>
-    <h1 align="center">学生管理员</h1><hr><br><br>
+    <h1 align="center">修改学生信息</h1><hr><br><br>
 
     <table>
         <tr>
@@ -27,23 +27,25 @@
             <td>操作</td>
         </tr>
         <%
+            String sid = request.getParameter("sid");
             Vector<Student> allStudent = (Vector<Student>)session.getAttribute("allStudent");
             Iterator<Student> iterator = allStudent.iterator();
             Student student = new Student();
             while(iterator.hasNext()){
                 student = iterator.next();
+                if(student.getSid().equals(sid)){
         %>
         <tr>
             <td>留空</td>
             <td><%=student.getSid()%></td>
-            <td><%=student.getSname()%></td>
-            <td><%=student.getPassword()%></td>
-            <td><%=student.getSuperuser()%></td>
-            <td><%=student.getFlag()%></td>
-            <td><a href="UpdateStu.jsp?sid=<%=student.getSid()%>">修改</a>|<a href="DeleteStu.jsp?sid=<%=student.getSid()%>">删除</a></td>
+            <td><input type="text" value="<%=student.getSname()%>"/></td>
+            <td><input type="text" value="<%=student.getPassword()%>"/></td>
+            <td><input type="text" value="<%=student.getSuperuser()%>"/></td>
+            <td><input type="text" value="<%=student.getFlag()%>"/></td>
+            <td><a href="">修改</a></td>
         </tr>
         <%
-            }
+            }}
 
         %>
     </table>
