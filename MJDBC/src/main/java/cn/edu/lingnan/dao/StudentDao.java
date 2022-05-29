@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Vector;
 
 public interface StudentDao {
-    public Student findStudentNameAndPassword(String sname,String password);
+    public Student findStudentByNameAndPassword(String sname,String password);
     public List<Student> findStudentByName(String sname);
     public Vector<Student> findAllStudent();
     public Student findStudentById(String sid);

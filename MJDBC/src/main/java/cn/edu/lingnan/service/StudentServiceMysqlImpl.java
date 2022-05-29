@@ -14,39 +14,14 @@ public class StudentServiceMysqlImpl implements StudentService {
     StudentDao studentDao = new StudentDaoMysqlImpl();
     ScoreDao scoreDao = new ScoreDaoMysqlImpl();
 
-//    CourseDao courseDao = new CourseDao();
-
-//    public boolean updateStudentPassword(String sid,String newPassword){
-//        boolean flag=false;
-//        Connection conn = null;
-//        PreparedStatement prep = null;
-//
-//        try {
-//            conn = DBConnection.getInstance().getConnection();
-//            String sql="update student set password=? where sid=?";
-//            prep = conn.prepareStatement(sql);
-//
-//            prep.setString(1, newPassword);
-//            prep.setString(2,sid);
-//            if(flag = prep.executeUpdate()==1){
-//                flag = false;
-//            }
-//        }catch(SQLException e){
-//            e.printStackTrace();
-//        }finally{
-//            DBConnection.getInstance().close(conn,prep);
-//        }
-//        return flag;
-//    }
-
     public StudentServiceMysqlImpl() {
         super();
     }
 
 
     @Override
-    public Student findStudentNameAndPassword(String sname, String password) {
-        return studentDao.findStudentNameAndPassword(sname,password);//直接调用
+    public Student findStudentByNameAndPassword(String sname, String password) {
+        return studentDao.findStudentByNameAndPassword(sname,password);//直接调用
     }
 
     @Override
@@ -71,13 +46,13 @@ public class StudentServiceMysqlImpl implements StudentService {
 
     @Override
     public boolean updateStudent(Student student) {
-        return updateStudent(student);
+        return studentDao.updateStudent(student);
     }
 
     @Override
     public boolean updateStudentPassword(String sname, String oldPassword, String newPassword) {
         boolean flag =false;
-        Student student = studentDao.findStudentNameAndPassword(sname,oldPassword);//组合式调用
+        Student student = studentDao.findStudentByNameAndPassword(sname,oldPassword);//组合式调用
         System.out.println(student.getSid());//测试上一步是否执行
         if(student.getSid()!=null){
             flag = studentDao.updateStudentPassword(student.getSid(),newPassword);
@@ -86,13 +61,15 @@ public class StudentServiceMysqlImpl implements StudentService {
     }
 
     @Override
-    public boolean deleteStudent(String sid) {
+    public boolean deleteStudentBySid(String sid) {
         boolean flag = false;
-        //查询有这个学生，删除成绩表根据学号删除
-        scoreDao.deleteScoreBySid(sid);
-
-        //接着删除学生记录，根据学号查询
-        studentDao.deleteStudentBySid(sid);
-        return false;
+        if (scoreDao.deleteScoreBySid(sid)){
+//            System.out.println("1111111111111");
+            flag = studentDao.deleteStudentBySid(sid);
+        }
+        return flag;
     }
+
+
+
 }

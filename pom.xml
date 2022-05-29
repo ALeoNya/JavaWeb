@@ -11,6 +11,14 @@
     <modules>
         <module>MJDBC</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>MJDBC</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

@@ -21,20 +21,20 @@ public class JDBCTest3 {
             rs = prep.executeQuery();
 
             //增加操作
-            rs.moveToInsertRow();
-            rs.updateString("sid","s09");
-            rs.updateString("sname","ccc");
-            rs.updateString("password","ccc");
-            rs.updateInt("supreuser",0);
-            rs.updateInt("flag",0);
-            rs.insertRow();
+//            rs.moveToInsertRow();
+//            rs.updateString("sid","s09");
+//            rs.updateString("sname","ccc");
+//            rs.updateString("password","ccc");
+//            rs.updateInt("supreuser",0);
+//            rs.updateInt("flag",0);
+//            rs.insertRow();
             //更新操作
             rs.last();
             rs.updateString("sname","ttt");
             rs.updateRow();
             //删除操作
-            rs.last();
-            rs.deleteRow();
+//            rs.last();
+//            rs.deleteRow();
 
 
 

@@ -38,9 +38,10 @@
             <td><%=student.getSid()%></td>
             <td><%=student.getSname()%></td>
             <td><%=student.getPassword()%></td>
-            <td><%=student.getSuperuser()%></td>
+             <td><%=student.getSuperuser()%></td>
             <td><%=student.getFlag()%></td>
-            <td><a href="UpdateStu.jsp?sid=<%=student.getSid()%>">修改</a>|<a href="DeleteStu.jsp?sid=<%=student.getSid()%>">删除</a></td>
+            <td><a href="updateStu.jsp?sid=<%=student.getSid()%>">修改</a>|
+                <a href="deleteStu.jsp?sid=<%=student.getSid()%>">删除</a></td>
         </tr>
         <%
             }

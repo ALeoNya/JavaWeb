@@ -133,11 +133,11 @@ public class DBConnection {
         }
     }
     public static DBConnection getInstance(){
-        System.out.println("test");
+//        System.out.println("test");
         if(dbConnection==null){
             dbConnection = new DBConnection();
         }
-        System.out.println("test2");
+//        System.out.println("test2");
         return dbConnection;
     }
 
@@ -147,6 +147,7 @@ public class DBConnection {
         } catch(SQLException e) {
             e.printStackTrace();
         }
+//        System.out.println("test3");
         return conn;
     }
 
