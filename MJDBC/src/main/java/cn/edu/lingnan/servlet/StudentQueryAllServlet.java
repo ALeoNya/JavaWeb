@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.List;
 
 public class StudentQueryAllServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //(2)
-//        StudentServiceMysqlImpl studentService = new StudentServiceMysqlImpl();
-//        Vector<Student>allStudent = studentService.findAllStudent();
+        //1 V->C param
 
-        Vector<Student>allStudent = new StudentServiceMysqlImpl().findAllStudent();
-        System.out.println("[Debug]查询所有学生信息，共有" +allStudent.size()+"条");
+        //2 C->M->C
+        StudentServiceMysqlImpl studentServiceMysql = new StudentServiceMysqlImpl();
+        List<Student> allStudent = studentServiceMysql.findAllStudent();
+        System.out.println("[Debug] StudentQueryAllServlet 一共查询到" + allStudent.size() + "个学生");
         HttpSession session = req.getSession();
         session.setAttribute("allStudent",allStudent);
-        //(3)
+        //3 C->V
         resp.sendRedirect("/admin/allStu.jsp");
     }
 }

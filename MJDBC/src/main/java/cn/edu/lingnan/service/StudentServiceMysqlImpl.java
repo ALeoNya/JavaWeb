@@ -61,12 +61,17 @@ public class StudentServiceMysqlImpl implements StudentService {
     }
 
     @Override
-    public boolean deleteStudentBySid(String sid) {
+    public boolean deleteStudent(String sid) {
+        //外键约束 先删除成绩表记录 再删除学生表记录
+//        boolean flag = false;
+//        if (scoreDao.deleteScoreBySid(sid)){
+//            flag = studentDao.deleteStudentBySid(sid);
+//        }
+//        return flag;
+
         boolean flag = false;
-        if (scoreDao.deleteScoreBySid(sid)){
-//            System.out.println("1111111111111");
-            flag = studentDao.deleteStudentBySid(sid);
-        }
+        scoreDao.deleteScoreBySid(sid);
+        flag = studentDao.deleteStudentBySid(sid);
         return flag;
     }
 

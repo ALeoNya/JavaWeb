@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生注册页面</title>
+    <link rel="script" href="./js/register.js">
+</head>
+<body>
+<h1>学生注册页面</h1> <br>
+<hr>
+<form action="/register" name="form">
+    用户编号：<input type="text" name="sid"><br>
+    用户名称：<input type="text" name="sname"><br>
+    用户密码：<input type="password" name="password"><br>
+    密码确认：<input type="password" name="password1"><br>
+    用户权限：<input type="text" name="superuser"><br>
+    备注信息：<select name="flag" id="">
+                <option value="1">普通用户</option>
+                <option value="0">管理用户</option>
+            </select>   <br>
+    <input type="submit">
+</form>
+</body>
+</html>

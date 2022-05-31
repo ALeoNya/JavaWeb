@@ -9,25 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/deleteStu")
+@WebServlet("/admin/deletestu")
 public class StudentDeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1
         String sid = req.getParameter("sid");
-        System.out.println("[]待删除的学生编号为" + sid);
+//        System.out.println("[Debug]待删除的学生编号为" + sid);
         //2
-        new StudentServiceMysqlImpl().deleteStudentBySid(sid);
+        new StudentServiceMysqlImpl().deleteStudent(sid);
         //3
-        resp.sendRedirect("/queryallstu");
-
-
-//        //1
-//        String sid = req.getParameter("sid");
-//        //2
-//        boolean flag = new StudentServiceMysqlImpl().deleteStudentBySid(sid);
-//        System.out.println(flag);
-//        //3
-//        resp.sendRedirect("/queryallstu");
+        resp.sendRedirect("//queryallStudent");
     }
 }
