@@ -44,7 +44,7 @@
         <td><%= student.getSuperuser() %></td>
         <td><%= student.getFlag() %></td>
         <td> <a href="updateStu.jsp?sid=<%= student.getSid()%>">修改</a> |
-            <a href="../admin/deleteStu.jsp">删除</a> </td>
+            <a href="deleteStu?sid=<%= student.getSid()%>">删除</a> </td>
     </tr>
     <%
         }

@@ -3476,7 +3476,7 @@ cid</ColNames>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="724" parent="333" name="sname">
+    <column id="724" parent="333" name="name">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>

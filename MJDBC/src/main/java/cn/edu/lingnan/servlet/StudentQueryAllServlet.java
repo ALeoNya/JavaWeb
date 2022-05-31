@@ -19,7 +19,7 @@ public class StudentQueryAllServlet extends HttpServlet {
         //2 C->M->C
         StudentServiceMysqlImpl studentServiceMysql = new StudentServiceMysqlImpl();
         List<Student> allStudent = studentServiceMysql.findAllStudent();
-        System.out.println("[Debug] StudentQueryAllServlet 一共查询到" + allStudent.size() + "个学生");
+        System.out.println("[Debug] StudentQueryAllServlet get there are "+ allStudent.size() +" students in total");
         HttpSession session = req.getSession();
         session.setAttribute("allStudent",allStudent);
         //3 C->V
