@@ -18,13 +18,13 @@
 <table>
     <thead>
     <tr>
-        <td>留空(复选框)</td>
+        <td><input type="checkbox" onclick="allcheck(this);"></td>
         <td>学生编号</td>
         <td>学生姓名</td>
         <td>学生密码</td>
         <td>学生权限</td>
         <td>备注信息</td>
-        <td>操作(删除和修改)</td>
+        <td>操作&nbsp;&nbsp;<input type="button" value="批量删除" onclick="delall();"/></td>
     </tr>
     </thead>
 
@@ -37,7 +37,7 @@
             student = iterable.next();
     %>
     <tr>
-        <td></td>
+        <td><input type="checkbox" name="check" value=<%= student.getSid() %>></td>
         <td><%= student.getSid() %></td>
         <td><%= student.getSname() %></td>
         <td><%= student.getPassword() %></td>
@@ -50,5 +50,6 @@
         }
     %>
 </table>
+ <script type="text/javascript" src="../js/allStu.js"></script>
 </body>
 </html>

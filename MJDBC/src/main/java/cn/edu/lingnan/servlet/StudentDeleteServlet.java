@@ -15,9 +15,19 @@ public class StudentDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1
         String sid = req.getParameter("sid");
-        System.out.println("[Debug]Number waiting to be deleted" + sid);
+        String flag = req.getParameter("flag");
+        System.out.println("[Debug]Number waiting to be deleted" + sid +" flag is£º "+flag);
         //2
-        new StudentServiceMysqlImpl().deleteStudent(sid);
+        if(flag==null) {
+            System.out.println("[Debug]Only one the number just waiting to be deleted is:" + sid);
+            new StudentServiceMysqlImpl().deleteStudent(sid);
+        }else {
+            System.out.println("[Debug]More the number just waiting to be deleted is:" + sid);
+            String[] split = sid.split(",");
+            for (String s:split) {
+                new StudentServiceMysqlImpl().deleteStudent(s);
+            }
+        }
         //3
         resp.sendRedirect("/queryallstu");
 //        resp.sendRedirect("/admin/allStu.jsp");
