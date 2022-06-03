@@ -13,7 +13,7 @@
 <h1 align="center">学生信息管理页面</h1>
 <hr>
 <a href="/main.jsp">返回</a>
-<a href="/destoryStu">注销</a>
+<a href="/destorystu">注销</a>
 
 <table>
     <thead>
