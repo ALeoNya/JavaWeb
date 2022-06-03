@@ -10,7 +10,7 @@ public interface StudentService {
     public List<Student> findStudentByName(String sname);
     public Vector<Student> findAllStudent();
     public Student findStudentById(String sid);
-    public int insertStudent(Student student); //新增学生记录
+    public boolean insertStudent(Student student); //新增学生记录
     public boolean updateStudent(Student student);//更新一位学生的全部信息除了主键
     public boolean updateStudentPassword(String sname,String oldPassword,String newPassword);//更新一个学生的密码
     public boolean deleteStudent(String sid);//删除一条记录 在Service层删除 先删除Score表的记录 在删除student表的记录

@@ -148,31 +148,63 @@ public class StudentDaoMysqlImpl implements StudentDao{
      }
 
     //(5)新增一条学生记录，注册使用
-    public int insertStudent(Student student){
-        int flag=0;
+//    public int insertStudent(Student student){
+//        int flag=0;
+//        Connection conn = null;
+//        PreparedStatement prep = null;
+//
+//        try {
+//            conn = DBConnection.getInstance().getConnection();
+//            String sql="insert into student values(?,?,?,?,?)";
+//            prep = conn.prepareStatement(sql);
+//
+//
+//            prep.setString(1, student.getSid());
+//            prep.setString(2, student.getSname());
+//            prep.setString(3, student.getPassword());
+//            prep.setInt(4, student.getSuperuser());
+//            prep.setInt(5, student.getFlag());
+//            prep.executeQuery();
+//            flag = prep.executeUpdate();
+//        }catch(SQLException e){
+//            e.printStackTrace();
+//        }finally{
+//            DBConnection.getInstance().close(conn,prep);
+//        }
+//        return flag;
+//    }
+    @Override
+    public boolean insertStudent(Student student) {
         Connection conn = null;
         PreparedStatement prep = null;
+        boolean flag = false;
 
         try {
+            //1.加载驱动程序
+            //2.建立数据库连接
             conn = DBConnection.getInstance().getConnection();
-            String sql="insert into student values(?,?,?,?,?)";
+            //3.创建SQL语句
+            String sql = "insert into student values(?,?,?,?,?)";
+            //4.执行SQL语句
             prep = conn.prepareStatement(sql);
-
-
-            prep.setString(1, student.getSid());
-            prep.setString(2, student.getSname());
-            prep.setString(3, student.getPassword());
-            prep.setInt(4, student.getSuperuser());
-            prep.setInt(5, student.getFlag());
-            prep.executeQuery();
-            flag = prep.executeUpdate();
-        }catch(SQLException e){
+            prep.setString(1,student.getSid());
+            prep.setString(2,student.getSname());
+            prep.setString(3,student.getPassword());
+            prep.setInt(4,student.getSuperuser());
+            prep.setInt(5,student.getFlag());
+            //5.更新结果集
+            int i = prep.executeUpdate();
+            if(i>0){
+                flag = true;
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally{
+        }finally {
             DBConnection.getInstance().close(conn,prep);
         }
         return flag;
     }
+    
 
     //(6)更新一位学生的全部信息除了主键
 //    @Override

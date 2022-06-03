@@ -40,7 +40,7 @@ public class StudentServiceMysqlImpl implements StudentService {
     }
 
     @Override
-    public int insertStudent(Student student) {
+    public boolean insertStudent(Student student) {
         return studentDao.insertStudent(student);
     }
 
