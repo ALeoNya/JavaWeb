@@ -2,24 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学生注册页面</title>
+    <title>新干员注册页面</title>
     <link rel="script" href="./js/register.js">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
 </head>
 <body>
-<h1>学生注册页面</h1> <br>
-<hr>
 <form action="/registerstu" name="form">
-    用户编号：<input type="text" name="sid"><br>
-    用户名称：<input type="text" name="sname"><br>
-    用户密码：<input type="password" name="password"><br>
-    密码确认：<input type="password" name="password1"><br>
-    用户权限：<input type="text" name="superuser"><br>
-    备注信息：<select name="flag">
+<!--    用户编号：<input type="text" name="sid"><br>-->
+<!--    用户名称：<input type="text" name="sname"><br>-->
+<!--    用户密码：<input type="password" name="password"><br>-->
+<!--    密码确认：<input type="password" name="password1"><br>-->
+<!--    用户权限：<input type="text" name="superuser"><br>-->
+<!--    备注信息：<select name="flag">-->
+<!--                <option value="1">普通用户</option>-->
+<!--                <option value="2">历史用户</option>-->
+<!--            </select>   <br>-->
+<!--    <input type="submit" value="注册" onclick="return check();">-->
+
+    <div id="login-box">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            <form class="login100-form validate-form" action="/login">
+                <span class="login100-form-title p-b-49">注册</span>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="用户编号">
+                    <span class="label-input100">编号</span>
+                    <input class="input100" type="text" name="sid">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
+                    <span class="label-input100">名称</span>
+                    <input class="input100" type="text" name="sname">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="请输入密码">
+                    <span class="label-input100">密码</span>
+                    <input class="input100" type="password" name="password">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="请再次输入密码">
+                    <span class="label-input100">密码</span>
+                    <input class="input100" type="password" name="password1">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="请输入权限">
+                    <span class="label-input100">权限</span>
+                    <input class="input100" type="text" name="superuser">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div><br>
+<!--                <button >注 册</button>-->
+                备注信息：<select name="flag">
                 <option value="1">普通用户</option>
                 <option value="2">历史用户</option>
             </select>   <br>
-    <input type="submit" value="注册" onclick="return check();">
+                <input type="submit" value="注册" onclick="return check();">
+            </form>
+        </div>
+    </div>
+    <div id="vd" style="z-index:1">
+        <img src="./images/1.png"  data-speed="-5" class="layer">
+        <img src="./images/2.png" data-speed="5" class="layer">
+        <img src="./images/3.png" data-speed="2" class="layer">
+        <img src="./images/4.png" data-speed="6" class="layer">
+        <img src="./images/5.png" data-speed="8" class="layer">
+        <img src="./images/6.png" data-speed="-2" class="layer">
+        <img src="./images/7.png" data-speed="4" class="layer">
+        <img src="./images/8.png" data-speed="-9" class="layer">
+        <img src="./images/9.png" data-speed="6" class="layer">
+        <img src="./images/10.png" data-speed="-7" class="layer">
+        <img src="./images/11.png" data-speed="-5" class="layer">
+        <img src="./images/12.png" data-speed="5" class="layer">
+    </div>
 </form>
-<script type="text/javascript" src="js/register.js"></script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./js/mouse2.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
 </body>
 </html>
