@@ -82,14 +82,14 @@ public class StudentDaoMysqlImpl implements StudentDao{
         }finally{
             DBConnection.getInstance().close(conn,stata,rs);
         }
-        return  list;
+        return list;
     }
+
+
 
     //(3)查询所有学生记录(DJDBC模板)
     public Vector<Student> findAllStudent(){
         Vector<Student> vector = new Vector<Student>();
-
-
         ResultSet rs = null;
         Connection conn = null;
         Statement stata = null;

@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>你的权限不够! 请升级成为管理员</h1>
-<a href="/index.html">返回首页</a>
+<h1>你的权限不足! 请与管理员沟通获得权限</h1>
+<a href="/main.jsp">返回菜单首页</a>
 </body>
 </html>

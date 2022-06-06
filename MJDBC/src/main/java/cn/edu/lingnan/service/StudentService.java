@@ -1,5 +1,6 @@
 package cn.edu.lingnan.service;
 
+import cn.edu.lingnan.pojo.Self;
 import cn.edu.lingnan.pojo.Student;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface StudentService {
     public boolean updateStudent(Student student);//更新一位学生的全部信息除了主键
     public boolean updateStudentPassword(String sname,String oldPassword,String newPassword);//更新一个学生的密码
     public boolean deleteStudent(String sid);//删除一条记录 在Service层删除 先删除Score表的记录 在删除student表的记录
+    public List<Self> findSelfDataByName(String sname);
 }

@@ -29,7 +29,7 @@ public class AuthorityFilter implements Filter {
                 filterChain.doFilter(servletRequest,servletResponse);
             }else {
                 //是普通用户
-                resp.sendRedirect("/authority.jsp");
+                resp.sendRedirect("/main1.jsp");
             }
         }else {
             //没登录

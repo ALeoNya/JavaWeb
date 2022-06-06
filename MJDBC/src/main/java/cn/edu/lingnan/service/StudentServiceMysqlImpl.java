@@ -1,9 +1,7 @@
 package cn.edu.lingnan.service;
 
-import cn.edu.lingnan.dao.ScoreDao;
-import cn.edu.lingnan.dao.ScoreDaoMysqlImpl;
-import cn.edu.lingnan.dao.StudentDao;
-import cn.edu.lingnan.dao.StudentDaoMysqlImpl;
+import cn.edu.lingnan.dao.*;
+import cn.edu.lingnan.pojo.Self;
 import cn.edu.lingnan.pojo.Student;
 
 import java.util.List;
@@ -13,6 +11,7 @@ public class StudentServiceMysqlImpl implements StudentService {
     //ÒµÎñÂß¼­²ã
     StudentDao studentDao = new StudentDaoMysqlImpl();
     ScoreDao scoreDao = new ScoreDaoMysqlImpl();
+    SelfCheckDao selfCheckDao = new SelfCheck();
 
     public StudentServiceMysqlImpl() {
         super();
@@ -75,6 +74,8 @@ public class StudentServiceMysqlImpl implements StudentService {
         return flag;
     }
 
-
-
+    @Override
+    public List<Self> findSelfDataByName(String sname) {
+        return selfCheckDao.findSelfDataByName(sname);
+    }
 }

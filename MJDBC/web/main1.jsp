@@ -11,7 +11,6 @@
 <a href="/destorystu">注销</a>
 <br><br>
 
-<a href="/queryallstu">查询所有学生</a>
-<a href="/queryselfdata1">查看个人信息页面</a>
+<a href="/queryselfdata2">查看个人信息页面</a>
 </body>
 </html>

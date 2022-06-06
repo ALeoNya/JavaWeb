@@ -29,6 +29,24 @@
         <servlet-name>StudentQueryAllServlet</servlet-name>
         <url-pattern>/queryallstu</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentQueryselfAdmin</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.StudentQueryselfAdmin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentQueryselfAdmin</servlet-name>
+        <url-pattern>/queryselfdata1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentQueryselfUser</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.StudentQueryselfUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentQueryselfUser</servlet-name>
+        <url-pattern>/queryselfdata2</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>AuthorityFilter</filter-name>
@@ -38,6 +56,8 @@
         <filter-name>AuthorityFilter</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
+
+
 
 
 </web-app>
