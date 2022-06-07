@@ -1,13 +1,4 @@
 @charset "UTF-8";
-/*body {*/
-/*    width: 100%;*/
-/*    height: 100vh;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*     !*background: url("../images/yasuo.jpg") no-repeat ;*!*/
-/*    background-size: 100% 100%;*/
-/*}*/
 input::-webkit-input-placeholder {
     /* placeholder颜色  */
     color: #ffffff;
@@ -27,6 +18,8 @@ input::-webkit-input-placeholder {
     align-items: center;
     left: 600px;
     bottom: 50px;
+    /*display: flex;*/
+
 }
 #login-box h1{
     font-size: 3rem;
