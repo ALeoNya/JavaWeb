@@ -2,15 +2,15 @@ package cn.edu.lingnan.pojo;
 
 public class Score {
     private String sid;
-    private String cname;
+    private String cid;
     private int score;
 
     public Score() {
     }
 
-    public Score(String sid, String cname, int score) {
+    public Score(String sid, String cid, int score) {
         this.sid = sid;
-        this.cname = cname;
+        this.cid = cid;
         this.score = score;
     }
 
@@ -22,12 +22,12 @@ public class Score {
         this.sid = sid;
     }
 
-    public String getCname() {
-        return cname;
+    public String getCid() {
+        return cid;
     }
 
-    public void setCname(String cname) {
-        this.cname = cname;
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
     public int getScore() {
@@ -44,7 +44,7 @@ public class Score {
     public String toString() {
         return "score{" +
                 "sid='" + sid + '\'' +
-                ", cname='" + cname + '\'' +
+                ", cid='" + cid + '\'' +
                 ", score=" + score +
                 '}';
     }

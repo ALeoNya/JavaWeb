@@ -1,6 +1,8 @@
 package cn.edu.lingnan.service;
 
 import cn.edu.lingnan.dao.*;
+import cn.edu.lingnan.pojo.Course;
+import cn.edu.lingnan.pojo.Score;
 import cn.edu.lingnan.pojo.Self;
 import cn.edu.lingnan.pojo.Student;
 
@@ -11,6 +13,7 @@ public class StudentServiceMysqlImpl implements StudentService {
     //ÒµÎñÂß¼­²ã
     StudentDao studentDao = new StudentDaoMysqlImpl();
     ScoreDao scoreDao = new ScoreDaoMysqlImpl();
+    CourseDao courseDao = new CourseDaoImpl();
     SelfCheckDao selfCheckDao = new SelfCheck();
 
     public StudentServiceMysqlImpl() {
@@ -34,6 +37,12 @@ public class StudentServiceMysqlImpl implements StudentService {
     }
 
     @Override
+    public Vector<Course> findAllCourse() {return courseDao.findAllCourse();}
+
+    @Override
+    public Vector<Score> findAllScore() {return scoreDao.findAllScore();}
+
+    @Override
     public Student findStudentById(String sid) {
         return studentDao.findStudentById(sid);
     }
@@ -41,6 +50,14 @@ public class StudentServiceMysqlImpl implements StudentService {
     @Override
     public boolean insertStudent(Student student) {
         return studentDao.insertStudent(student);
+    }
+
+    public boolean insertScore(Score score) {
+        return scoreDao.insertScore(score);
+    }
+
+    public boolean insertCourse(Course course) {
+        return courseDao.insertCourse(course);
     }
 
     @Override
@@ -78,4 +95,22 @@ public class StudentServiceMysqlImpl implements StudentService {
     public List<Self> findSelfDataByName(String sname) {
         return selfCheckDao.findSelfDataByName(sname);
     }
+
+    @Override
+    public Vector<Student> findPass(String sname,String sid) {
+        return studentDao.findPass(sname,sid);
+    }
+
+    @Override
+    public boolean updateCourse(Course course) {
+        return courseDao.updateCourse(course);
+    }
+
+    @Override
+    public boolean updateScore(Score score) {
+        return scoreDao.updateScore(score);
+    }
+
+
+
 }

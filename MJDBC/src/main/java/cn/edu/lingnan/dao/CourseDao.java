@@ -3,6 +3,8 @@ package cn.edu.lingnan.dao;
 
 import cn.edu.lingnan.pojo.Course;
 
+import java.util.Vector;
+
 public interface CourseDao {
 
     //按课程编号查询课程记录
@@ -13,6 +15,6 @@ public interface CourseDao {
 
     //删除课程表 (外键约束 要在Service层先删除Score表的记录 再删除Course表记录)
     public boolean deleteCourseByCid(String cid);
-
-
+    public boolean updateCourse(Course course);
+    public Vector<Course> findAllCourse();
 }

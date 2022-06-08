@@ -3,6 +3,7 @@ package cn.edu.lingnan.dao;
 import cn.edu.lingnan.pojo.Score;
 
 import java.util.List;
+import java.util.Vector;
 
 public interface   ScoreDao {
 
@@ -23,4 +24,11 @@ public interface   ScoreDao {
 
     //插入 成绩 （外键约束 在Service 层操作）
     public boolean insertScore(Score score);
+
+
+
+    //更新工资
+    boolean updateScore(Score score);
+
+    public Vector<Score> findAllScore();
 }

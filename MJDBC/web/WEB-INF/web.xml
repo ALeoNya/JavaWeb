@@ -47,7 +47,36 @@
         <servlet-name>StudentQueryselfUser</servlet-name>
         <url-pattern>/queryselfdata2</url-pattern>
     </servlet-mapping>
-    
+
+    <!--找回密码-->
+    <servlet>
+        <servlet-name>FindStuPassServlet</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.FindStuPassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindStuPassServlet</servlet-name>
+        <url-pattern>/FindPass</url-pattern>
+    </servlet-mapping>
+
+<!--查询工资表-->
+    <servlet>
+        <servlet-name>ScoreQueryAllServlet</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.ScoreQueryAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScoreQueryAllServlet</servlet-name>
+        <url-pattern>/findscore</url-pattern>
+    </servlet-mapping>
+    <!--查询职位表-->
+    <servlet>
+        <servlet-name>CourseQueryAllServlet</servlet-name>
+        <servlet-class>cn.edu.lingnan.servlet.CourseQueryAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourseQueryAllServlet</servlet-name>
+        <url-pattern>/findcourse</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>AuthorityFilter</filter-name>
         <filter-class>cn.edu.lingnan.filter.AuthorityFilter</filter-class>

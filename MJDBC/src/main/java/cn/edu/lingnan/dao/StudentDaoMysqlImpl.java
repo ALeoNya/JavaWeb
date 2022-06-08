@@ -345,6 +345,29 @@ public class StudentDaoMysqlImpl implements StudentDao{
 //    }
 //    return flag;
 //}
+    //(9)’“ªÿ—ß…˙√‹¬Î
+public Vector<Student> findPass(String sname, String sid){
+    Vector<Student> vector = new Vector<Student>();
+    ResultSet rs = null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+    try {
+        conn = DBConnection.getInstance().getConnection();
+        String sql="select psssword from student where sname = ? AND sid = ?";
+        ps = conn.prepareStatement(sql);
+        rs = ps.executeQuery(sql);
+        while(rs.next()) {
+            Student student = new Student();
+            student.setPassword(rs.getString("password"));
+            vector.add(student);
+        }
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally{
+        DBConnection.getInstance().close(conn,ps,rs);
+    }
+    return vector;
+}
 
 
 

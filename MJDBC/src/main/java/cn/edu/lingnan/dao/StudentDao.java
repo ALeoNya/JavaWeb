@@ -14,4 +14,5 @@ public interface StudentDao {
     public boolean updateStudent(Student student);//更新一位学生的全部信息除了主键
     public boolean updateStudentPassword(String sname,String newPassword);//更新一个学生的密码
     public boolean deleteStudentBySid(String sid);
+    public Vector<Student> findPass(String sname, String sid);
 }

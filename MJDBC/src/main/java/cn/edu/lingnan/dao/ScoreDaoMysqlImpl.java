@@ -3,12 +3,10 @@ package cn.edu.lingnan.dao;
 import cn.edu.lingnan.pojo.Score;
 import cn.edu.lingnan.util.DBConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 public class ScoreDaoMysqlImpl implements ScoreDao{
     @Override
@@ -141,7 +139,7 @@ public class ScoreDaoMysqlImpl implements ScoreDao{
             while(rs.next()){
                 Score score = new Score();
                 score.setSid(rs.getString("sid"));
-                score.setCname(rs.getString("cname"));
+                score.setCid(rs.getString("cname"));
                 score.setScore(rs.getInt("score"));
                 list.add(score);
             }
@@ -173,7 +171,7 @@ public class ScoreDaoMysqlImpl implements ScoreDao{
             rs = prep.executeQuery(sql);
             while(rs.next()){
                 score.setSid(rs.getString("sid"));
-                score.setCname(rs.getString("cname"));
+                score.setCid(rs.getString("cname"));
                 score.setScore(rs.getInt("score"));
             }
         } catch (SQLException e) {
@@ -195,12 +193,12 @@ public class ScoreDaoMysqlImpl implements ScoreDao{
             conn = DBConnection.getInstance().getConnection();
             //3.创建SQL语句
             //删除分数表中的多条记录
-            String sql = "insert into score values(?,?,?) ";
+            String sql = "insert into score values(?,?,'1000') ";
             //4.执行SQL语句
             prep = conn.prepareStatement(sql);
             prep.setString(1,score.getSid());
-            prep.setString(2,score.getCname());
-            prep.setInt(3,score.getScore());
+            prep.setString(2,score.getCid());
+//            prep.setInt(3,score.getScore());
             //5.获取结果集
             int i = prep.executeUpdate();
             if(i>0){
@@ -213,4 +211,65 @@ public class ScoreDaoMysqlImpl implements ScoreDao{
         }
         return flag;
     }
+
+    //更新工资
+    @Override
+    public boolean updateScore(Score score) {
+        boolean flag = false;
+        Connection conn = null;
+        PreparedStatement prep = null;
+
+        try {
+            //1.加载驱动程序
+            //2.建立数据库连接
+            conn = DBConnection.getInstance().getConnection();
+            //3.创建SQL语句
+            String sql = "update score set cid=?,score=? where sid=?";
+            //4.执行SQL语句
+            prep = conn.prepareStatement(sql);
+            prep.setString(3,score.getSid());
+            prep.setString(1, score.getCid());
+            prep.setInt(2, score.getScore());
+            //5.获取结果集
+            int i = prep.executeUpdate();
+            if(i>0){
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBConnection.getInstance().close(conn,prep);
+        }
+        return flag;
+    }
+
+    //(3)查询所有职位记录
+    @Override
+    public Vector<Score> findAllScore(){
+        Vector<Score> vector = new Vector<Score>();
+        ResultSet rs = null;
+        Connection conn = null;
+        Statement stata = null;
+
+        try {
+            conn = DBConnection.getInstance().getConnection();
+            String sql="select*from score";
+            stata = conn.createStatement();
+            rs = stata.executeQuery(sql);
+
+            while(rs.next()){
+                Score score = new Score();
+                score.setSid(rs.getString("sid"));
+                score.setCid(rs.getString("cid"));
+                score.setScore(Integer.parseInt(rs.getString("score")));
+                vector.add(score);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            DBConnection.getInstance().close(conn,stata,rs);
+        }
+        return vector;
+    }
+
 }

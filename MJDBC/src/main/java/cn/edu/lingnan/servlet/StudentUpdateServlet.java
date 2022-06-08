@@ -15,7 +15,7 @@ public class StudentUpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        //1
+        //1修改学生表
         Student student = new Student();
         student.setSid(req.getParameter("sid"));
         student.setSname(req.getParameter("username"));
