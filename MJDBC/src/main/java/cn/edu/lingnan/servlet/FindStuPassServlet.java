@@ -24,6 +24,6 @@ public class FindStuPassServlet extends HelloServlet{
 //        System.out.println("Student = " + vector.toString());
         session.setAttribute("pass",vector.getClass());
 
-        response.sendRedirect("/comm_user/findPass.jsp");
+        response.sendRedirect("/findPass.jsp");//点击立即找回跳转到找回页面，方案一：不一定使用
     }
 }

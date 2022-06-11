@@ -57,7 +57,7 @@
         <servlet-name>FindStuPassServlet</servlet-name>
         <url-pattern>/FindPass</url-pattern>
     </servlet-mapping>
-
+                <!--    xml的作用是：将实现功能的servlet类和前端的jsp文件链接到一起-->
 <!--查询工资表-->
     <servlet>
         <servlet-name>ScoreQueryAllServlet</servlet-name>
