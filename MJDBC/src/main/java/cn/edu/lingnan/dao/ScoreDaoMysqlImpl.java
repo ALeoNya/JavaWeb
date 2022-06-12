@@ -34,33 +34,6 @@ public class ScoreDaoMysqlImpl implements ScoreDao{
         return flag;
     }
 
-    //通过学号sid删除成绩表的学生记录
-//    @Override
-//    public boolean deleteScoreBySid(String sid) {
-//        boolean flag = false;
-//        Connection conn = null;
-//        PreparedStatement prep = null;
-//        try {
-//            //1.加载驱动程序
-//            //2.建立数据库连接
-//            conn = DBConnection.getInstance().getConnection();
-//            String sql = "delete from score where sid=?";
-//            //4.执行SQL语句
-//            prep = conn.prepareStatement(sql);
-//            prep.setString(1,sid);
-//            //5.获取结果集
-//            int i = prep.executeUpdate();
-//            if(i>0){
-//                flag = true;
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }finally {
-//            DBConnection.getInstance().close(conn,prep);
-//        }
-//        return flag;
-//    }
-
     @Override
     public boolean deleteScoreBySidAndCid(String sid, String cid) {
         boolean flag = false;

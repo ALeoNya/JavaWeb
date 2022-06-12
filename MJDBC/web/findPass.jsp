@@ -27,21 +27,20 @@
             <span class="login100-form-title p-b-49">找回密码</span>
             <div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
                 <span class="label-input100">用户名</span>
-                <input class="input100" type="text" name="username" placeholder="请输入用户名" autocomplete="off">
+                <input class="input100" type="text" name="username1" placeholder="请输入用户名" autocomplete="off">
                 <span class="focus-input100" data-symbol="&#xf206;"></span>
             </div>
             <div class="wrap-input100 validate-input m-b-23" data-validate="请输入员工编号">
                 <span class="label-input100">编号</span>
-                <input class="input100" type="text" name="sid" placeholder="请输入员工编号" autocomplete="off">
+                <input class="input100" type="text" name="sid1" placeholder="请输入员工编号" autocomplete="off">
                 <span class="focus-input100" data-symbol="&#xf206;"></span>
             </div>
-            <div class="wrap-input100 validate-input m-b-23" data-validate="请输入员工编号">
-                <span class="label-input100" name="pass"></span>
-                <!--                <input class="input100" type="text" name="sid" placeholder="请输入员工编号" autocomplete="off">-->
-                <!--                <span class="focus-input100" data-symbol="&#xf206;"></span>-->
-            </div>
+<%--            <div class="wrap-input100 validate-input m-b-23" data-validate="请输入员工编号">--%>
+<%--                <span class="label-input100" name="pass"></span>--%>
+<%--            </div>--%>
             <div class="flex-col-c p-t-25">
-                <a href="getPass.jsp" class="txt2">立即找回</a>
+                <input type="submit" value="立即找回">
+<%--                <a href="getPass.jsp" class="txt2">立即找回</a>--%>
             </div>
         </div>
     </form>

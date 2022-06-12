@@ -318,46 +318,24 @@ public class StudentDaoMysqlImpl implements StudentDao{
         return false;
     }
 
-
-//@Override
-//public boolean deleteStudentBySid(String sid) {
-//    boolean flag = false;
-//    Connection conn = null;
-//    PreparedStatement prep = null;
-//    try {
-//        //1.加载驱动程序
-//        //2.建立数据库连接
-//        conn = DBConnection.getInstance().getConnection();
-//        //3.创建SQL语句
-//        String sql = "delete from student where sid=?";
-//        //4.执行SQL语句
-//        prep = conn.prepareStatement(sql);
-//        prep.setString(1,sid);
-//        //5.获取结果集
-//        int i = prep.executeUpdate();
-//        if(i>0){
-//            flag = true;
-//        }
-//    } catch (SQLException e) {
-//        e.printStackTrace();
-//    }finally {
-//        DBConnection.getInstance().close(conn,prep);
-//    }
-//    return flag;
-//}
     //(9)找回学生密码
 public Vector<Student> findPass(String sname, String sid){
     Vector<Student> vector = new Vector<Student>();
+
     ResultSet rs = null;
     Connection conn = null;
-    PreparedStatement ps = null;
+    PreparedStatement prep = null;
     try {
         conn = DBConnection.getInstance().getConnection();
-        String sql="select password from student where sname = 'hiiro' AND sid = 'e01'";
-//        String sql="select psssword from student where sname = ? AND sid = ?";
-        ps = conn.prepareStatement(sql);
-        rs = ps.executeQuery(sql);
-        while(rs.next()) {
+//        String sql="select password from student where sname = 'hiiro' AND sid = 'e01'";
+        String sql="select password from student where sname = ? AND sid = ?";
+        prep = conn.prepareStatement(sql);
+        prep.setString(1,sname);
+        prep.setString(2,sid);
+        //5.获取结果集
+        rs = prep.executeQuery();//这里的sql要不要加？
+
+        while(rs.next()) {    //把sql语句运行结果给到resultset让rs顺序输出
             Student student = new Student();
             student.setPassword(rs.getString("password"));
             vector.add(student);
@@ -365,7 +343,7 @@ public Vector<Student> findPass(String sname, String sid){
     }catch(SQLException e){
         e.printStackTrace();
     }finally{
-        DBConnection.getInstance().close(conn,ps,rs);
+        DBConnection.getInstance().close(conn,prep,rs);
     }
     return vector;
 }
