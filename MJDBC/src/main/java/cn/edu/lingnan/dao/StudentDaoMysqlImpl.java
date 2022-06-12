@@ -353,7 +353,8 @@ public Vector<Student> findPass(String sname, String sid){
     PreparedStatement ps = null;
     try {
         conn = DBConnection.getInstance().getConnection();
-        String sql="select psssword from student where sname = ? AND sid = ?";
+        String sql="select password from student where sname = 'hiiro' AND sid = 'e01'";
+//        String sql="select psssword from student where sname = ? AND sid = ?";
         ps = conn.prepareStatement(sql);
         rs = ps.executeQuery(sql);
         while(rs.next()) {

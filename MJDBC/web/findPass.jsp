@@ -41,7 +41,7 @@
                 <!--                <span class="focus-input100" data-symbol="&#xf206;"></span>-->
             </div>
             <div class="flex-col-c p-t-25">
-                <a href="findpass.html" class="txt2">立即找回</a>
+                <a href="getPass.jsp" class="txt2">立即找回</a>
             </div>
         </div>
     </form>
